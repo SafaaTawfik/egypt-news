@@ -1,24 +1,21 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Egypt News</title>
-</head>
-<body>
-     {{#each news}}
-    <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src={{this.urlToImage}} alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">{{this.title}}</h5>
-    <p class="card-text">{{this.description}}</p>
-    <a href={{this.url}} class="btn btn-primary">المزيد</a>
-  </div>
+{{>header}}
+{{#each news}}
+<div class="card card-body">
+    <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
+        <div class="mr-5 mb-3 mb-lg-0"> <img src={{this.urlToImage}} width="230" height="150" alt=""> </div>
+        <div class="media-body">
+            <h6 class="media-title font-weight-semibold"> <a href="{{this.url}}" data-abc="true">{{this.title}}</a>
+            </h6>
+            <p class="mb-3">
+                {{this.description}}
+            </p>
+        </div>
+        <div class="mt-4 mt-lg-0 ml-lg-3 text-center">
+            <a href={{this.url}} class="btn btn-primary mt-4 text-white">اقرا الخبر</a>
+        </div>
+    </div>
 </div>
-{{/each}}
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
-</html>
+
+{{/each}}
+{{>footer}}
